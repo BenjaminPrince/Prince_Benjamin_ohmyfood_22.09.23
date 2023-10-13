@@ -1,3 +1,7 @@
+
+// Ensuite, importez votre fichier "style-menu.scss"
+@import 'style-menu';
+
 // Import des polices Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300;1,400;1,500;1,700;1,900&display=swap');
 
@@ -16,52 +20,66 @@ body {
 }
 
 // Header Styles
-.header_logo {
-    background: var(--white, #FFF);
-
-/* Shadow/Badge */
+.header__logo {
+  background: var(--white, #FFF);
+  /* Shadow/Badge */
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
-  padding-top: 20px ;
+  padding-top: 20px;
   padding-bottom: 10px;
   text-align: center;
 }
 
-.header_logo_img {
+.header__logo-img {
   max-width: 180px;
   height: auto;
 }
 
+
+/* Header Styles */
+.header__back-button {
+  position: absolute;
+  top: 20px; 
+  left: 20px; 
+  cursor: pointer;
+}
+
+.header__back-button i {
+  font-size: 20px;
+  color: #000000;
+  transition: color 0.3s;
+}
+
+
 // Location Styles
 .location {
-    background: var(--grey-2, #EAEAEA);
-    display: flex;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    gap: 17px;
-   
-    .location_icon {
-      margin-right: 1px;
-      
-      i {
-        font-size: 15px;
-        color: $icon_map;
-      }
-    }
-  
-    .location_text {
-      p {
-        font-size: 18px;
-      }
+  background: var(--grey-2, #EAEAEA);
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+
+  .location__icon {
+    margin-right: 1px;
+
+    i {
+      font-size: 15px;
+      color: $icon_map;
     }
   }
-  
+
+  .location__text {
+    p {
+      font-size: 18px;
+    }
+  }
+}
 
 // Intro Styles
 .intro {
-    background: var(--background, #F6F6F6);
-    text-align: center;
-    padding: 20px;
+  background: var(--background, #F6F6F6);
+  text-align: center;
+  padding: 20px;
 
   h2 {
     color: $icon_map;
@@ -75,7 +93,7 @@ body {
     margin-bottom: 20px;
   }
 
-  .explore-button {
+  .intro__explore-button {
     display: inline-block;
     background-color: null;
     color: white;
@@ -86,12 +104,14 @@ body {
     font-weight: 500;
     border-radius: 25px;
     background: var(--button-gradient, linear-gradient(175deg, #FF79DA 0%, #9356DC 100%));
-  /* Shadow/Button */
+    /* Shadow/Button */
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
-    transition: background-color 0.3s;
+    transition: all 600ms;
 
     &:hover {
-      background-color: $secondary-color;
+      background: var(--button-gradient, linear-gradient(175deg, #FF79DA 0%, #9356DC 100%));
+      box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.5);
+      transition: all 600ms;
     }
   }
 }
@@ -110,14 +130,14 @@ body {
     text-align: left; /* Aligner le titre à gauche */
   }
 
-  .functioning-content {
+  .functioning__content {
     max-width: 100%; /* Limiter la largeur du contenu à la largeur de la fenêtre */
     margin: 0 auto; /* Centrer le contenu horizontalement */
     display: flex;
     flex-direction: column; /* Afficher les étapes en colonne */
     align-items: center;
 
-    .functioning-step {
+    .functioning__step {
       width: 80%;
       height: 75px;
       display: flex;
@@ -129,7 +149,7 @@ body {
       box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
       position: relative;
 
-      .step-number {
+      .functioning__step-number {
         width: 24px;
         height: 24px; /* Ajuster la hauteur du cercle SVG */
         display: flex;
@@ -144,7 +164,7 @@ body {
         color: white;
       }
 
-      .step-details {
+      .functioning__step-details {
         display: flex; /* Afficher l'icône et le texte côte à côte */
         align-items: center; /* Aligner verticalement */
         padding: 10px;
@@ -165,29 +185,151 @@ body {
 
 
 
+//restaurant 
 
+// Mixin pour les coins arrondis
+@mixin rounded-corners($top-left: 0, $top-right: 0, $bottom-left: 0, $bottom-right: 0) {
+  border-top-left-radius: $top-left;
+  border-top-right-radius: $top-right;
+  border-bottom-left-radius: $bottom-left;
+  border-bottom-right-radius: $bottom-right;
+}
 
+// Mixin pour le fond vert "Nouveau"
+@mixin new-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 80px;
+    height: 30px;
+    border-radius: 2px;
+    color: #008766;
+    background-color: #99E2D0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin:12px;
+}
+
+// Styles pour la section des restaurants
+.restaurants {
+  background: #F6F6F6; // Votre couleur d'arrière-plan pour la section des restaurants
+  padding: 20px; // Ajustez le remplissage selon vos besoins
+ 
+}
+
+// Styles pour les cartes de restaurant
+.restaurant-card {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none; // Supprimer le soulignement bleu
+  color: inherit;
+  @include rounded-corners(10px, 10px, 10px, 10px); // Coins arrondis en haut et en bas
+
+  &__image {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 250px;
+    min-height: 250px;
+    display: block;
+    object-fit: cover;
+    @include rounded-corners(10px, 10px, 0, 0); // Coins arrondis en haut
+  }
+
+  &__details { 
+    margin-bottom: 30px;
+    padding: 16px;
+    background-color: #ffffff;
+    display: flex;
+    @include rounded-corners(0, 0, 10px, 10px); // Coins arrondis en bas
+
+    &-text {
+      font-weight: bold; 
+      width: 100%;
+    }
+
+    &-name {
+      font-weight: bold;
+    }
+
+    &-location {
+      margin-top: 8px;
+    }
+  }
+
+  &__details-heart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+    .empty {
+      font-size: 24px;
+      color: #000000; 
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+  
+    &:hover i {
+      color: #c667db; 
+    }
+  }
+
+  .full{
+    position: absolute;
+    opacity: 0;
+    background: linear-gradient(#FF79DA, #9356DC);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 22px;
+    transition: all 400ms;
+
+    &:hover{
+        opacity: 1;
+    }
+}
+
+ &::before {
+    // Ajout du rectangle "Nouveau"
+    @include new-tag;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &:nth-child(-n + 2)::before {
+    // Cible les 2 premières cartes pour afficher "Nouveau"
+    content: "Nouveau";
+  }
+}
 
 
 
 // Footer Styles
-footer {
+.footer {
   background: var(--grey, #353535);
   padding: 20px;
   color: #ffffff;
 
-  .footer-logo {
+  .footer__logo {
     filter: brightness(0) invert(1);
     width: 90px;
     height: auto;
     flex-shrink: 0;
   }
 
-  .footer-list {
+  .footer__list {
     list-style: none;
     padding: 0;
 
-    .footer-item {
+    .footer__item {
       display: flex;
       align-items: center;
       padding: 5px 0;
@@ -195,7 +337,7 @@ footer {
       color: #fff;
       font-weight: 500;
 
-      .footer-icon {
+      .footer__icon {
         margin-right: 10px;
         font-size: 14px;
         color: #fff;
@@ -204,11 +346,156 @@ footer {
       }
     }
 
-    .footer-item-light {
+    .footer__item--light {
       color: #fff;
       font-weight: 400;
     }
   }
 }
+
+
+
+/* Styles pour le loader */
+/* Styles pour le loader */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(185, 185, 185); /* Fond gris semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Placez le loader au-dessus du contenu de la page */
+  animation: fadeOut 0.5s 3s forwards; /* Animation pour masquer le loader après 3 secondes */
+}
+
+.loader-content {
+  text-align: center;
+}
+
+/* Ajout du spinner circulaire */
+.spinner {
+  border: 8px solid #3498db; /* Bleu */
+  border-top: 8px solid #f3f3f3; /* Light grey */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite; /* Animation de rotation */
+}
+
+/* Animation de spin pour le spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animation de fade out pour le loader */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+/* Animation de fond pour le loader */
+@keyframes changeBackgroundColor {
+  0% { background: rgba(255, 255, 255, 0.9); }
+  50% { background: rgba(255, 255, 255, 0.7); }
+  100% { background: rgba(255, 255, 255, 0.9); }
+}
+
+.wrapper {
+  width: 200px;
+  height: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 15%;
+  transform-origin: 50%;
+  animation: circle7124 .5s alternate infinite ease;
+}
+
+@keyframes circle7124 {
+  0% {
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+
+  40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0%;
+  }
+}
+
+.circle:nth-child(2) {
+  left: 45%;
+  animation-delay: .2s;
+}
+
+.circle:nth-child(3) {
+  left: auto;
+  right: 15%;
+  animation-delay: .3s;
+}
+
+.shadow {
+  width: 20px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.9);
+  position: absolute;
+  top: 62px;
+  transform-origin: 50%;
+  z-index: -1;
+  left: 15%;
+  filter: blur(1px);
+  animation: shadow046 .5s alternate infinite ease;
+}
+
+@keyframes shadow046 {
+  0% {
+    transform: scaleX(1.5);
+  }
+
+  40% {
+    transform: scaleX(1);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scaleX(.2);
+    opacity: .4;
+  }
+}
+
+.shadow:nth-child(4) {
+  left: 45%;
+  animation-delay: .2s
+}
+
+.shadow:nth-child(5) {
+  left: auto;
+  right: 15%;
+  animation-delay: .3s;
+}
+
+
+/* styles.css */
+
+
 
 
