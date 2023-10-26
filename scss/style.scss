@@ -24,8 +24,8 @@ body {
   background: var(--white, #FFF);
   /* Shadow/Badge */
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding-top: 25px;
+  padding-bottom: 15px;
   text-align: center;
 }
 
@@ -38,7 +38,7 @@ body {
 /* Header Styles */
 .header__back-button {
   position: absolute;
-  top: 20px; 
+  top: 30px; 
   left: 20px; 
   cursor: pointer;
 }
@@ -151,12 +151,12 @@ body {
 
       .functioning__step-number {
         width: 24px;
-        height: 24px; /* Ajuster la hauteur du cercle SVG */
+        height: 24px; 
         display: flex;
         align-items: center;
         justify-content: center;
         position: absolute;
-        left: -12px; /* Placer le cercle SVG à gauche de l'étape */
+        left: -12px; 
         top: 30%;
         transform: translateY(-50%);
         background: var(--primary, #9356DC);
@@ -165,18 +165,18 @@ body {
       }
 
       .functioning__step-details {
-        display: flex; /* Afficher l'icône et le texte côte à côte */
-        align-items: center; /* Aligner verticalement */
+        display: flex; 
+        align-items: center; 
         padding: 10px;
-        margin-left: 40px; /* Espacement légèrement accru entre le cercle SVG et le texte */
-        font-weight: 600; /* Rendre le texte un peu plus gras */
+        margin-left: 40px; 
+        font-weight: 600; 
         gap: 10px;
         font-style: normal;
 
         i {
           font-size: 18px;
           color: $primary-color;
-          margin-right: 15px; /* Espacement légèrement accru entre l'icône et le texte */
+          margin-right: 15px; 
         }
       }
     }
@@ -218,7 +218,6 @@ body {
 .restaurants {
   background: #F6F6F6; // Votre couleur d'arrière-plan pour la section des restaurants
   padding: 20px; // Ajustez le remplissage selon vos besoins
- 
 }
 
 // Styles pour les cartes de restaurant
@@ -250,7 +249,7 @@ body {
     @include rounded-corners(0, 0, 10px, 10px); // Coins arrondis en bas
 
     &-text {
-      font-weight: bold; 
+      font-weight: normal; 
       width: 100%;
     }
 
@@ -294,18 +293,11 @@ body {
     &:hover{
         opacity: 1;
     }
-}
-
- &::before {
-    // Ajout du rectangle "Nouveau"
-    @include new-tag;
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 
-  &:nth-child(-n + 2)::before {
-    // Cible les 2 premières cartes pour afficher "Nouveau"
+  &.new::before {
+    // Ajout du rectangle "Nouveau" seulement pour les cartes avec la classe "new"
+    @include new-tag;
     content: "Nouveau";
   }
 }
@@ -350,12 +342,18 @@ body {
       color: #fff;
       font-weight: 400;
     }
+
+    .footer__item--light a {
+      color: #fff;
+      font-weight: 400;
+      text-decoration: none;
+    }
   }
 }
 
 
 
-/* Styles pour le loader */
+
 /* Styles pour le loader */
 .loader {
   position: fixed;
@@ -494,7 +492,140 @@ body {
 }
 
 
-/* styles.css */
+
+
+
+// Media Query pour les écrans de bureau
+@media screen and (min-width: 768px) {
+
+  .intro h2 {
+    font-size: 35px;
+}
+
+
+  .functioning .functioning__content {
+    flex-direction: row; // Afficher les étapes en ligne
+    justify-content: space-evenly; // Espacement égal entre les étapes
+
+    // Styles pour les 3 cartes de "Fonctionnement"
+    .functioning__step {
+      width: calc(27% - 20px); // Réduire la largeur des cartes
+      max-height: 150px; // Réduire la hauteur des cartes
+      margin-right: 20px; // Ajouter de l'espace entre les cartes
+    }
+
+   
+  }
+
+  // Autres styles pour "Fonctionnement" et "Restaurants" (déjà définis)
+  .functioning{
+    margin-left: 130px;
+  }
+
+  .container1, .container2 {
+    display: flex;
+    gap: 100px; 
+    padding-bottom: 20px;
+  }
+
+  .restaurants {
+    padding-right: 150px;
+    padding-left: 150px;
+}
+
+.restaurant-card__details-text h2{
+  margin: 0px;
+}
+.restaurant-card__details-text p {
+  margin: 0px;
+  font-weight: normal;
+}
+
+
+  .restaurant-card{
+    flex:1 1;
+  }
+
+  .restaurant-card__image{
+    max-height: 150px;
+    min-height: 100px;
+  }
+
+  .restaurant-card__details {
+    margin-bottom: 1px;
+    padding: 16px;
+    background-color: #ffffff;
+    display: flex;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: flex-end; 
+  background: var(--grey, #353535);
+  color: #fff;
+ 
+
+  .footer__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; 
+    margin-bottom: 0; 
+
+    .footer__item {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px; 
+      font-size: 14px;
+      color: #fff;
+      font-weight: 500;
+      margin-right: 15px;
+      margin-left:-25px;
+
+      .footer__icon {
+        margin-right: 10px;
+        font-size: 14px;
+        color: #fff;
+        width: 16px;
+        text-align: center;
+      }
+
+      &--light {
+        color: #fff;
+        font-weight: 400;
+        margin-left: -5px;
+        margin-right: -3px ;
+      }
+
+      &--light a {
+        color: #fff;
+        font-weight: 400;
+        margin-left: -5px;
+        margin-right: -3px ;
+        text-decoration: none;
+      }
+    }
+
+  }
+
+  .footer__logo-container {
+    flex-shrink: 0;
+    order: 2; 
+    margin: 0; 
+    margin-left:80px
+  }
+}
+}
+
+
+
+
 
 
 
