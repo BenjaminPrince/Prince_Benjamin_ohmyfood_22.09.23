@@ -405,6 +405,13 @@ body {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+.restaurant-card .restaurant-card__details-text h2 {
+  margin: 0px;
+}
+.restaurant-card .restaurant-card__details-text p {
+  margin: 0px;
+  font-weight: normal;
+}
 .restaurant-card__image {
   min-width: 100%;
   max-width: 100%;

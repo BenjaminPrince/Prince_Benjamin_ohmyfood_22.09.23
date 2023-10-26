@@ -233,7 +233,13 @@ body {
   @include rounded-corners(10px, 10px, 10px, 10px); // Coins arrondis en haut et en bas
   
  
-
+  .restaurant-card__details-text h2{
+    margin: 0px;
+  }
+  .restaurant-card__details-text p {
+    margin: 0px;
+    font-weight: normal;
+  }
 
 
   &__image {
