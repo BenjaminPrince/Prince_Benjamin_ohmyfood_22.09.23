@@ -405,17 +405,6 @@ body {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.restaurant-card p {
-  font-size: 18px;
-  margin-block: 0px;
-  margin-block-start: 0px;
-}
-.restaurant-card h2 {
-  font-weight: bold;
-  font-size: 20px;
-  margin-block: 0px;
-  margin-block-start: 0px;
-}
 .restaurant-card__image {
   min-width: 100%;
   max-width: 100%;
@@ -441,8 +430,19 @@ body {
 .restaurant-card__details-text {
   width: 100%;
 }
+.restaurant-card__details-text h2 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-block: 0px;
+  margin-block-start: 0px;
+}
 .restaurant-card__details-name {
   font-weight: bold;
+}
+.restaurant-card__details-location p {
+  font-size: 18px;
+  margin-block: 0px;
+  margin-block-start: 0px;
 }
 .restaurant-card__details-heart {
   display: flex;

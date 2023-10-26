@@ -232,19 +232,10 @@ body {
   color: inherit;
   @include rounded-corners(10px, 10px, 10px, 10px); // Coins arrondis en haut et en bas
   
-  p{
-        font-size: 18px;
-        margin-block: 0px;
-        margin-block-start: 0px;
-      }
+ 
 
- h2{
-        font-weight: bold;
-        font-size:20px ;
-        margin-block: 0px;
-        margin-block-start: 0px;
-      }
-      
+
+
   &__image {
     min-width: 100%;
     max-width: 100%;
@@ -265,7 +256,12 @@ body {
     &-text{
       
       width: 100%;
-     
+      h2{
+        font-weight: bold;
+        font-size:20px ;
+        margin-block: 0px;
+        margin-block-start: 0px;
+      }
     }
 
     &-name {
@@ -273,7 +269,11 @@ body {
     }
 
     &-location {
-      
+       p{
+        font-size: 18px;
+        margin-block: 0px;
+        margin-block-start: 0px;
+      }
     }
   }
 
