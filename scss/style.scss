@@ -231,7 +231,20 @@ body {
   text-decoration: none; // Supprimer le soulignement bleu
   color: inherit;
   @include rounded-corners(10px, 10px, 10px, 10px); // Coins arrondis en haut et en bas
+  
+  p{
+        font-size: 18px;
+        margin-block: 0px;
+        margin-block-start: 0px;
+      }
 
+ h2{
+        font-weight: bold;
+        font-size:20px ;
+        margin-block: 0px;
+        margin-block-start: 0px;
+      }
+      
   &__image {
     min-width: 100%;
     max-width: 100%;
@@ -249,9 +262,10 @@ body {
     display: flex;
     @include rounded-corners(0, 0, 10px, 10px); // Coins arrondis en bas
 
-    &-text {
-      font-weight: normal; 
+    &-text{
+      
       width: 100%;
+     
     }
 
     &-name {
@@ -259,7 +273,7 @@ body {
     }
 
     &-location {
-      margin-top: 8px;
+      
     }
   }
 

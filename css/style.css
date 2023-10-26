@@ -405,6 +405,17 @@ body {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+.restaurant-card p {
+  font-size: 18px;
+  margin-block: 0px;
+  margin-block-start: 0px;
+}
+.restaurant-card h2 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-block: 0px;
+  margin-block-start: 0px;
+}
 .restaurant-card__image {
   min-width: 100%;
   max-width: 100%;
@@ -428,14 +439,10 @@ body {
   border-bottom-right-radius: 10px;
 }
 .restaurant-card__details-text {
-  font-weight: normal;
   width: 100%;
 }
 .restaurant-card__details-name {
   font-weight: bold;
-}
-.restaurant-card__details-location {
-  margin-top: 8px;
 }
 .restaurant-card__details-heart {
   display: flex;
