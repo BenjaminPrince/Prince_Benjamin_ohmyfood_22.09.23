@@ -64,7 +64,7 @@ body {
 
     i {
       font-size: 15px;
-      color: $icon_map;
+      color: var(--grey, #353535);
     }
   }
 
@@ -82,7 +82,7 @@ body {
   padding: 20px;
 
   h2 {
-    color: $icon_map;
+    color: var(--grey, #353535);
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 10px;

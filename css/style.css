@@ -149,7 +149,6 @@ button:hover {
   width: 100%;
   margin: 12px 0 12px 15px;
   overflow: hidden;
-  margin: none;
 }
 .card-menu p {
   text-overflow: ellipsis;
@@ -285,7 +284,7 @@ body {
 }
 .location .location__icon i {
   font-size: 15px;
-  color: --grey, #353535;
+  color: var(--grey, #353535);
 }
 .location .location__text p {
   font-size: 18px;
@@ -297,7 +296,7 @@ body {
   padding: 20px;
 }
 .intro h2 {
-  color: --grey, #353535;
+  color: var(--grey, #353535);
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
