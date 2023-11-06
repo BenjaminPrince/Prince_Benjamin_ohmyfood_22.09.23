@@ -413,7 +413,7 @@ body {
 /* Animation de fade out pour le loader */
 @keyframes fadeOut {
   0% { opacity: 1; }
-  100% { opacity: 0; }
+  100% { opacity: 0; display: none; }
 }
 
 /* Animation de fond pour le loader */
